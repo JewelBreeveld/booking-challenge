@@ -11,7 +11,7 @@ class BookingForm extends Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
-  handleSubmit(event) {
+  handleSubmit = event => {
     event.preventDefault();
     const {
       pickupAdress,
@@ -35,14 +35,15 @@ class BookingForm extends Component {
 
     fetch("http://localhost:9090/price", booking)
       .then(response => response.json())
-      .then(bookingOK => this.setState({ [bookingOK]: "Ok" }))
-
+      .then(bookingOk => this.setState({ [bookingOk]: "Ok" }))
       .catch(console.err);
-  }
+  };
 
   render() {
     return (
-      <form>
+      <form
+        style={{ display: "flex", flexDirection: "column", maxWidth: "200px" }}
+      >
         {/*1. pickup => inputfield*/}
         <input
           type="text"
@@ -53,12 +54,19 @@ class BookingForm extends Component {
           onChange={this.handleChange}
         />
         {/*2. via => inputfield*/}
+        <h5>via address</h5>
+        <select>
+          {" "}
+          <option>yes</option>
+          <option>no</option>
+        </select>
         <input
           type="text"
           name="viaAdress"
           placeholder="Address"
           onChange={this.handleChange}
         />
+
         {/* dropoff => inputfield */}
         <input
           type="text"

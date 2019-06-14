@@ -5,9 +5,11 @@ class ChooseVehicle extends Component {
     return (
       <div>
         <h5>Please select your vehicle of choice</h5>
-        <option>Nissan Leaf</option>
-        <option>Tesla Model S</option>
-        <option>Tesla Model X</option>
+        <select>
+          <option>Nissan Leaf</option>
+          <option>Tesla Model S</option>
+          <option>Tesla Model X</option>
+        </select>
       </div>
     );
   }
