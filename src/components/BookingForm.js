@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PickupTime from "./PickupTime";
 import ChooseVehicle from "./ChooseVehicle";
+var fetch = require("node-fetch");
 
 class BookingForm extends Component {
   state = {};
@@ -10,9 +11,34 @@ class BookingForm extends Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
-  handleSubmit = event => {
+  handleSubmit(event) {
     event.preventDefault();
-  };
+    const {
+      pickupAdress,
+      viaAdress,
+      dropoffAddress,
+      pickupTime,
+      fullName,
+      phoneNumber,
+      email
+    } = this.state;
+
+    const booking = {
+      pickupAdress,
+      viaAdress,
+      dropoffAddress,
+      pickupTime,
+      fullName,
+      phoneNumber,
+      email
+    };
+
+    fetch("http://localhost:9090/price", booking)
+      .then(response => response.json())
+      .then(bookingOK => this.setState({ [bookingOK]: "Ok" }))
+
+      .catch(console.err);
+  }
 
   render() {
     return (
@@ -64,7 +90,7 @@ class BookingForm extends Component {
         {/* Email passenger */}
         <input
           type="text"
-          name="Email"
+          name="email"
           placeholder="E-mail"
           required
           onChange={this.handleChange}

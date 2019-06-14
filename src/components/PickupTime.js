@@ -17,7 +17,7 @@ class PickupTime extends Component {
     return (
       <div>
         <input
-          name="pickup-asap"
+          name="pickupTime"
           type="checkbox"
           checked={this.state.isChecked}
           onChange={this.handleChange}
