@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import ChooseVehicle from "./ChooseVehicle";
+
 class BookingForm extends Component {
   render() {
     return (
@@ -12,13 +14,14 @@ class BookingForm extends Component {
         <input type="text" name="name" placeholder="Address" />
         {/* ASAP or Date/Time Component */}
         {/* Vehicle Component */}
+        <ChooseVehicle />
         {/* Name passenger => inputfield */}
         <input type="text" name="name" placeholder="Full name" />
         {/* Phone passenger => inputfield */}
         <input type="text" name="name" placeholder="Phone-number" />
         {/* Email passenger */}
         <input type="text" name="name" placeholder="E-mail" />
-        {/* Submit form */}
+        {/* Submit form button*/}
         <input type="submit" value="Submit" />
       </form>
     );
