@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import PickupTime from "./PickupTime";
 import ChooseVehicle from "./ChooseVehicle";
 
 class BookingForm extends Component {
@@ -13,6 +13,7 @@ class BookingForm extends Component {
         {/* dropoff => inputfield */}
         <input type="text" name="name" placeholder="Address" />
         {/* ASAP or Date/Time Component */}
+        <PickupTime />
         {/* Vehicle Component */}
         <ChooseVehicle />
         {/* Name passenger => inputfield */}
